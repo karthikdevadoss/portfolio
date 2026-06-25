@@ -4,165 +4,746 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karthikeyan Devadoss — AI Integration & Delivery Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a2e; }
+:root {
+  --bg: #050a18;
+  --bg2: #080f22;
+  --bg3: #0d1730;
+  --blue: #2563eb;
+  --cyan: #06b6d4;
+  --blue-glow: rgba(37,99,235,0.3);
+  --cyan-glow: rgba(6,182,212,0.2);
+  --white: #f8fafc;
+  --gray: #94a3b8;
+  --border: rgba(255,255,255,0.07);
+  --glass: rgba(255,255,255,0.03);
+}
 
-  /* NAV */
-  nav { background: #0a0f1e; padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-  .nav-logo { color: #f1f5f9; font-size: 16px; font-weight: 600; }
-  .nav-links { display: flex; gap: 28px; align-items: center; }
-  .nav-links a { color: #94a3b8; font-size: 13px; text-decoration: none; cursor: pointer; }
-  .nav-links a:hover { color: #f1f5f9; }
-  .nav-cta { border: 1px solid #2563eb; border-radius: 6px; padding: 6px 16px; color: #93c5fd !important; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* HERO */
-  .hero { background: #0a0f1e; padding: 80px 40px 60px; min-height: 480px; display: flex; align-items: center; }
-  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #0f2442; border: 1px solid #1d4ed8; border-radius: 20px; padding: 6px 16px; margin-bottom: 24px; }
-  .hero-badge-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; }
-  .hero-badge span { font-size: 12px; color: #93c5fd; }
-  .hero h1 { font-size: 36px; font-weight: 600; color: #f1f5f9; line-height: 1.2; margin-bottom: 10px; }
-  .hero-title { font-size: 16px; color: #3b82f6; font-weight: 500; margin-bottom: 18px; }
-  .hero p { font-size: 14px; color: #94a3b8; line-height: 1.7; margin-bottom: 32px; }
-  .hero-btns { display: flex; gap: 14px; margin-bottom: 48px; }
-  .btn-primary { background: #2563eb; border-radius: 8px; padding: 12px 24px; font-size: 14px; color: #fff; font-weight: 500; cursor: pointer; border: none; }
-  .btn-secondary { border: 1px solid #334155; border-radius: 8px; padding: 12px 24px; font-size: 14px; color: #e2e8f0; background: transparent; cursor: pointer; }
-  .hero-stats { display: flex; gap: 36px; padding-top: 32px; border-top: 1px solid #1e293b; }
-  .stat-num { font-size: 22px; font-weight: 600; color: #f1f5f9; }
-  .stat-label { font-size: 11px; color: #64748b; margin-top: 3px; }
-  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .tech-pill { background: #0f172a; border: 1px solid #1e293b; border-radius: 10px; padding: 12px 16px; }
-  .tech-pill-main { font-size: 12px; font-weight: 500; color: #e2e8f0; }
-  .tech-pill-sub { font-size: 11px; color: #475569; margin-top: 2px; }
+html { scroll-behavior: smooth; }
 
-  /* SECTIONS */
-  .section { padding: 72px 40px; max-width: 1100px; margin: 0 auto; }
-  .section-tag { font-size: 11px; font-weight: 600; color: #2563eb; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
-  .section-title { font-size: 28px; font-weight: 600; color: #0f172a; margin-bottom: 8px; }
-  .section-sub { font-size: 14px; color: #64748b; margin-bottom: 36px; }
-  .section-divider { border: none; border-top: 1px solid #e2e8f0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+  cursor: none;
+}
 
-  /* ABOUT / TIMELINE */
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-  .tl-item { display: flex; gap: 18px; padding-bottom: 28px; }
-  .tl-item:last-child { padding-bottom: 0; }
-  .tl-left { display: flex; flex-direction: column; align-items: center; width: 24px; flex-shrink: 0; }
-  .tl-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
-  .tl-dot.blue { background: #2563eb; }
-  .tl-dot.gray { background: #94a3b8; }
-  .tl-line { width: 1px; background: #e2e8f0; flex: 1; margin-top: 4px; }
-  .tl-date { font-size: 11px; color: #94a3b8; margin-bottom: 4px; }
-  .tl-role { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 3px; }
-  .tl-co { font-size: 13px; color: #64748b; margin-bottom: 7px; }
-  .tl-desc { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 8px; }
-  .tl-badge { display: inline-block; font-size: 11px; background: #eff6ff; color: #1e40af; border-radius: 4px; padding: 3px 10px; }
+/* CUSTOM CURSOR */
+.cursor {
+  width: 12px; height: 12px;
+  background: var(--cyan);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  mix-blend-mode: screen;
+}
+.cursor-glow {
+  width: 40px; height: 40px;
+  background: radial-gradient(circle, rgba(6,182,212,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease;
+}
 
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .skill-card { border-radius: 12px; padding: 20px; }
-  .skill-card.blue { background: #eff6ff; border: 1px solid #bfdbfe; }
-  .skill-card.gray { background: #f8fafc; border: 1px solid #e2e8f0; }
-  .skill-card-title { font-size: 13px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-  .skill-card.blue .skill-card-title { color: #1e40af; }
-  .skill-card.gray .skill-card-title { color: #64748b; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { font-size: 12px; border-radius: 5px; padding: 5px 12px; }
-  .tag.blue { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
-  .tag.gray { background: #fff; color: #64748b; border: 1px solid #e2e8f0; }
+/* LOADING SCREEN */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.loader.hidden { opacity: 0; visibility: hidden; }
+.loader-logo {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulse 1s ease infinite;
+}
+.loader-bar {
+  width: 200px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.loader-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  border-radius: 2px;
+  animation: load 1.5s ease forwards;
+}
+@keyframes load { from { width: 0; } to { width: 100%; } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
 
-  /* AI TOOLS */
-  .tools-bg { background: #f8fafc; padding: 72px 40px; }
-  .tools-inner { max-width: 1100px; margin: 0 auto; }
-  .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .tool-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; transition: border-color 0.2s; cursor: pointer; }
-  .tool-card:hover { border-color: #3b82f6; box-shadow: 0 4px 16px rgba(37,99,235,0.08); }
-  .tool-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 20px; }
-  .tool-name { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 6px; }
-  .tool-desc { font-size: 12px; color: #64748b; line-height: 1.6; margin-bottom: 14px; flex: 1; }
-  .tool-footer { display: flex; align-items: center; justify-content: space-between; }
-  .tool-tag { font-size: 11px; border-radius: 4px; padding: 3px 8px; }
-  .tool-try { font-size: 12px; color: #2563eb; font-weight: 500; }
-  .interview-tip { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 10px; padding: 16px 20px; margin-top: 24px; }
-  .interview-tip-title { font-size: 13px; font-weight: 600; color: #0369a1; margin-bottom: 5px; }
-  .interview-tip-text { font-size: 12px; color: #0284c7; line-height: 1.6; }
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5,10,24,0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: rgba(37,99,235,0.15) !important;
+  border: 1px solid rgba(37,99,235,0.4) !important;
+  color: #93c5fd !important;
+  padding: 7px 18px;
+  border-radius: 8px;
+  transition: all 0.2s !important;
+}
+.nav-cta:hover { background: rgba(37,99,235,0.3) !important; }
 
-  /* MODAL */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: center; justify-content: center; }
-  .modal-overlay.open { display: flex; }
-  .modal { background: #fff; border-radius: 16px; padding: 28px; width: 580px; max-width: 95vw; max-height: 85vh; overflow-y: auto; }
-  .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-  .modal-title { font-size: 16px; font-weight: 600; color: #0f172a; }
-  .modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: #64748b; }
-  .modal-desc { font-size: 13px; color: #64748b; margin-bottom: 16px; line-height: 1.6; }
-  .modal textarea { width: 100%; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; font-size: 13px; height: 120px; resize: vertical; font-family: inherit; color: #0f172a; }
-  .modal textarea:focus { outline: none; border-color: #3b82f6; }
-  .modal-btn { background: #2563eb; color: #fff; border: none; border-radius: 8px; padding: 10px 24px; font-size: 14px; font-weight: 500; cursor: pointer; margin-top: 12px; width: 100%; }
-  .modal-btn:disabled { background: #93c5fd; cursor: not-allowed; }
-  .modal-result { margin-top: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 13px; color: #334155; line-height: 1.7; white-space: pre-wrap; display: none; }
-  .modal-result.visible { display: block; }
-  .modal-loading { text-align: center; color: #2563eb; font-size: 13px; margin-top: 12px; display: none; }
-  .modal-loading.visible { display: block; }
-  .api-key-row { display: flex; gap: 8px; margin-bottom: 12px; }
-  .api-key-row input { flex: 1; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #0f172a; }
-  .api-key-row input:focus { outline: none; border-color: #3b82f6; }
-  .api-key-note { font-size: 11px; color: #94a3b8; margin-bottom: 14px; }
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 40px 60px;
+}
+canvas#neural { position: absolute; inset: 0; }
 
-  /* PROJECTS */
-  .projects-grid { display: flex; flex-direction: column; gap: 16px; }
-  .project-card { border: 1px solid #e2e8f0; border-radius: 12px; padding: 22px; }
-  .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
-  .project-title { font-size: 15px; font-weight: 600; color: #0f172a; margin-bottom: 3px; }
-  .project-org { font-size: 12px; color: #94a3b8; }
-  .project-status { font-size: 11px; border-radius: 20px; padding: 4px 12px; font-weight: 500; white-space: nowrap; }
-  .status-live { background: #f0fdf4; color: #15803d; border: 1px solid #86efac; }
-  .status-case { background: #eff6ff; color: #1e40af; border: 1px solid #93c5fd; }
-  .project-desc { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 12px; }
-  .project-outcome { background: #f8fafc; border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; font-size: 12px; color: #64748b; }
-  .project-outcome strong { color: #0f172a; }
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(6,182,212,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
 
-  /* BLOG */
-  .blog-grid { display: flex; flex-direction: column; }
-  .blog-item { padding: 20px 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-  .blog-item:last-child { border-bottom: none; }
-  .blog-cat { font-size: 11px; font-weight: 600; color: #2563eb; background: #eff6ff; border-radius: 4px; padding: 2px 8px; margin-bottom: 7px; display: inline-block; }
-  .blog-title { font-size: 14px; font-weight: 600; color: #0f172a; margin-bottom: 5px; }
-  .blog-desc { font-size: 13px; color: #64748b; line-height: 1.5; }
-  .blog-meta { font-size: 11px; color: #94a3b8; margin-top: 6px; }
-  .blog-arrow { font-size: 20px; color: #cbd5e1; flex-shrink: 0; margin-top: 16px; }
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
 
-  /* CONTACT */
-  .contact-bg { background: #f8fafc; padding: 72px 40px; }
-  .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-  .avail-badge { display: inline-flex; align-items: center; gap: 8px; background: #f0fdf4; border: 1px solid #86efac; border-radius: 20px; padding: 6px 16px; margin-bottom: 20px; }
-  .avail-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; }
-  .avail-text { font-size: 12px; color: #15803d; font-weight: 500; }
-  .contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-  .contact-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; }
-  .contact-link-label { font-size: 13px; color: #64748b; }
-  .contact-link-val { font-size: 13px; color: #2563eb; margin-left: auto; }
-  .contact-form { display: flex; flex-direction: column; gap: 14px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .form-field { display: flex; flex-direction: column; gap: 5px; }
-  .form-label { font-size: 12px; color: #64748b; font-weight: 500; }
-  .form-input { border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #0f172a; font-family: inherit; }
-  .form-input:focus { outline: none; border-color: #3b82f6; }
-  .form-textarea { border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #0f172a; height: 100px; resize: vertical; font-family: inherit; }
-  .form-btn { background: #2563eb; border: none; border-radius: 8px; padding: 12px; font-size: 14px; color: #fff; font-weight: 500; cursor: pointer; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  margin-bottom: 24px;
+}
+.badge-dot {
+  width: 7px; height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: blink 2s ease infinite;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+.hero-badge span { font-size: 12px; color: #86efac; font-weight: 500; }
 
-  /* FOOTER */
-  footer { background: #0a0f1e; padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; }
-  .footer-name { font-size: 14px; font-weight: 500; color: #f1f5f9; }
-  .footer-sub { font-size: 11px; color: #475569; margin-top: 3px; }
-  .footer-links { display: flex; gap: 24px; }
-  .footer-links a { font-size: 12px; color: #64748b; text-decoration: none; }
-  .footer-domain { font-size: 13px; font-weight: 500; color: #3b82f6; }
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #f8fafc 60%, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  /* SCROLL */
-  html { scroll-behavior: smooth; }
+.hero-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cyan);
+  margin-bottom: 20px;
+  min-height: 26px;
+  letter-spacing: -0.2px;
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+.hero-btns { display: flex; gap: 14px; margin-bottom: 48px; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), #1d4ed8);
+  border-radius: 10px;
+  padding: 12px 26px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  cursor: none;
+  transition: all 0.2s;
+  box-shadow: 0 0 20px rgba(37,99,235,0.4);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(37,99,235,0.6); }
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 26px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray);
+  cursor: none;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.2); color: var(--white); }
+
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, var(--white), var(--gray));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-label { font-size: 11px; color: var(--gray); margin-top: 3px; letter-spacing: 0.05em; }
+
+/* BENTO GRID (hero right side) */
+.bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 12px;
+}
+.bento-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37,99,235,0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.bento-card:hover::before { opacity: 1; }
+.bento-card:hover { border-color: rgba(37,99,235,0.3); transform: translateY(-2px); }
+.bento-card.wide { grid-column: span 2; }
+.bento-label { font-size: 10px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+.bento-value { font-size: 15px; font-weight: 600; color: var(--white); }
+.bento-sub { font-size: 11px; color: var(--gray); margin-top: 2px; }
+.bento-icon { font-size: 20px; margin-bottom: 8px; }
+
+/* SECTION STYLES */
+.section-wrap { padding: 96px 40px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--gray);
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+/* DIVIDER */
+.divider { border: none; border-top: 1px solid var(--border); }
+
+/* TIMELINE */
+.timeline { display: flex; flex-direction: column; }
+.tl-item { display: flex; gap: 20px; padding-bottom: 36px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-left { display: flex; flex-direction: column; align-items: center; width: 28px; flex-shrink: 0; }
+.tl-dot-blue {
+  width: 12px; height: 12px;
+  background: var(--blue);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+  box-shadow: 0 0 12px var(--blue-glow);
+}
+.tl-dot-gray {
+  width: 12px; height: 12px;
+  background: #334155;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.tl-line { width: 1px; background: var(--border); flex: 1; margin-top: 4px; }
+.tl-date { font-size: 11px; color: #475569; margin-bottom: 5px; letter-spacing: 0.05em; }
+.tl-role { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+.tl-co { font-size: 13px; color: var(--gray); margin-bottom: 8px; }
+.tl-desc { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 10px; }
+.tl-badge {
+  display: inline-block;
+  font-size: 11px;
+  background: rgba(37,99,235,0.1);
+  color: #93c5fd;
+  border-radius: 6px;
+  padding: 3px 10px;
+  border: 1px solid rgba(37,99,235,0.2);
+}
+
+/* SKILLS BENTO */
+.skills-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.skill-block {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.skill-block::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(37,99,235,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: rotate 4s linear infinite;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+.skill-block:hover::after { opacity: 1; }
+.skill-block:hover { border-color: rgba(37,99,235,0.4); }
+.skill-block.ai { border-color: rgba(6,182,212,0.2); background: rgba(6,182,212,0.03); }
+.skill-block.ai:hover { border-color: rgba(6,182,212,0.5); box-shadow: 0 0 20px rgba(6,182,212,0.1); }
+.skill-name { font-size: 12px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+.skill-cat { font-size: 10px; color: var(--gray); }
+.skill-ico { font-size: 18px; margin-bottom: 8px; }
+
+/* AI TOOLS */
+.tools-bg { background: var(--bg2); }
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.tool-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  cursor: none;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.tool-card::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+  transition: all 0.4s;
+  pointer-events: none;
+}
+.tool-card:hover::before { top: -10%; left: -10%; }
+.tool-card:hover {
+  border-color: rgba(37,99,235,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(37,99,235,0.15);
+}
+.tool-icon-wrap {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+.tool-name { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+.tool-desc { font-size: 12px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+.tool-footer { display: flex; align-items: center; justify-content: space-between; }
+.tool-tag { font-size: 10px; border-radius: 4px; padding: 3px 8px; }
+.tool-try { font-size: 12px; color: var(--cyan); font-weight: 600; }
+
+.interview-tip {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.2);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-top: 24px;
+}
+.interview-tip-title { font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 6px; }
+.interview-tip-text { font-size: 12px; color: #67e8f9; line-height: 1.6; }
+
+/* PROJECTS */
+.project-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+.project-card:hover { border-color: rgba(37,99,235,0.3); }
+.project-card:last-child { margin-bottom: 0; }
+.project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.project-title { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+.project-org { font-size: 12px; color: #475569; }
+.project-status { font-size: 11px; border-radius: 20px; padding: 4px 12px; font-weight: 500; white-space: nowrap; }
+.status-live { background: rgba(34,197,94,0.1); color: #86efac; border: 1px solid rgba(34,197,94,0.3); }
+.status-case { background: rgba(37,99,235,0.1); color: #93c5fd; border: 1px solid rgba(37,99,235,0.3); }
+.project-desc { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 14px; }
+.project-outcome {
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: var(--gray);
+  border-left: 2px solid var(--blue);
+}
+.project-outcome strong { color: var(--white); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-blue { font-size: 11px; background: rgba(37,99,235,0.1); color: #93c5fd; border: 1px solid rgba(37,99,235,0.2); border-radius: 5px; padding: 4px 10px; }
+.tag-gray { font-size: 11px; background: rgba(255,255,255,0.04); color: var(--gray); border: 1px solid var(--border); border-radius: 5px; padding: 4px 10px; }
+
+/* CURRENTLY BUILDING */
+.building-bg { background: var(--bg3); }
+.building-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.building-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+}
+.building-card .live-badge {
+  position: absolute;
+  top: 14px; right: 14px;
+  font-size: 10px;
+  background: rgba(34,197,94,0.1);
+  color: #86efac;
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 20px;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.live-dot { width: 5px; height: 5px; background: #22c55e; border-radius: 50%; animation: blink 2s infinite; }
+.building-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 6px; margin-top: 4px; }
+.building-desc { font-size: 12px; color: var(--gray); line-height: 1.5; }
+.building-tag { font-size: 10px; color: var(--cyan); margin-top: 10px; }
+
+/* BLOG */
+.blog-item {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.2s;
+}
+.blog-item:hover .blog-arrow { color: var(--cyan); transform: translateX(4px); }
+.blog-item:last-child { border-bottom: none; }
+.blog-cat { font-size: 10px; font-weight: 600; color: var(--cyan); background: rgba(6,182,212,0.1); border-radius: 4px; padding: 2px 8px; margin-bottom: 8px; display: inline-block; border: 1px solid rgba(6,182,212,0.2); }
+.blog-title { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+.blog-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+.blog-meta { font-size: 11px; color: #334155; margin-top: 6px; }
+.blog-arrow { font-size: 20px; color: #334155; flex-shrink: 0; margin-top: 18px; transition: all 0.2s; }
+
+/* CONTACT */
+.contact-bg {
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+  border-top: 1px solid var(--border);
+}
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.avail-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 20px;
+  padding: 6px 16px;
+  margin-bottom: 24px;
+}
+.contact-title { font-size: 32px; font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; }
+.contact-desc { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.contact-link:hover { border-color: rgba(37,99,235,0.3); background: rgba(37,99,235,0.05); }
+.contact-link-label { font-size: 12px; color: var(--gray); }
+.contact-link-val { font-size: 13px; color: #93c5fd; margin-left: auto; }
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 12px; color: var(--gray); font-weight: 500; }
+.form-input {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--white);
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+.form-input:focus { outline: none; border-color: rgba(37,99,235,0.5); }
+.form-textarea {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--white);
+  height: 100px;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+.form-textarea:focus { outline: none; border-color: rgba(37,99,235,0.5); }
+.form-btn {
+  background: linear-gradient(135deg, var(--blue), #1d4ed8);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  cursor: none;
+  transition: all 0.2s;
+  box-shadow: 0 0 20px rgba(37,99,235,0.3);
+}
+.form-btn:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(37,99,235,0.5); }
+
+/* FOOTER */
+footer {
+  background: #020509;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+}
+.footer-name { font-size: 14px; font-weight: 600; color: var(--white); }
+.footer-sub { font-size: 11px; color: #334155; margin-top: 3px; }
+.footer-links { display: flex; gap: 28px; }
+.footer-links a { font-size: 12px; color: #475569; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gray); }
+.footer-domain {
+  font-size: 13px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: #0d1730;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  width: 580px;
+  max-width: 95vw;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 0 60px rgba(37,99,235,0.2);
+}
+.modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.modal-title { font-size: 17px; font-weight: 600; color: var(--white); }
+.modal-close { background: none; border: none; font-size: 20px; cursor: none; color: var(--gray); }
+.modal-close:hover { color: var(--white); }
+.modal-desc { font-size: 13px; color: var(--gray); margin-bottom: 18px; line-height: 1.6; }
+.api-key-row { display: flex; gap: 0; margin-bottom: 8px; }
+.api-key-row input {
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--white);
+  font-family: inherit;
+}
+.api-key-row input:focus { outline: none; border-color: rgba(37,99,235,0.5); }
+.api-key-note { font-size: 11px; color: #334155; margin-bottom: 16px; }
+.modal textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 13px;
+  height: 130px;
+  resize: vertical;
+  font-family: inherit;
+  color: var(--white);
+}
+.modal textarea:focus { outline: none; border-color: rgba(37,99,235,0.5); }
+.modal-btn {
+  background: linear-gradient(135deg, var(--blue), #1d4ed8);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: none;
+  margin-top: 12px;
+  width: 100%;
+  transition: all 0.2s;
+}
+.modal-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.modal-loading { text-align: center; color: var(--cyan); font-size: 13px; margin-top: 12px; display: none; }
+.modal-loading.visible { display: block; }
+.modal-result {
+  margin-top: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  display: none;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.modal-result.visible { display: block; }
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* GLOW LINE */
+.glow-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), transparent);
+  margin: 0;
+  opacity: 0.4;
+}
 </style>
 </head>
 <body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-logo">KD</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div style="font-size:12px;color:#334155;letter-spacing:0.1em;">INITIALISING</div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -173,375 +754,433 @@
     <a href="#tools">AI Tools</a>
     <a href="#projects">Projects</a>
     <a href="#blog">Blog</a>
-    <a href="#contact" class="nav-cta">Contact Me</a>
+    <a href="#contact" class="nav-cta">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <canvas id="neural"></canvas>
+  <div class="hero-gradient"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        <span>Open to roles in Berlin · EU Work Rights</span>
+        <div class="badge-dot"></div>
+        <span>Open to roles in Berlin &middot; EU Work Rights</span>
       </div>
-      <h1>Karthikeyan Devadoss</h1>
-      <p class="hero-title">Senior Software Engineer → AI Integration & Delivery Specialist</p>
-      <p>10+ years building enterprise backend systems at scale. Last 2 years leading AI integration, agentic workflows, and Copilot delivery on NRG Energy's digital transformation programme in Berlin.</p>
+      <h1>Karthikeyan<br>Devadoss</h1>
+      <div class="hero-subtitle" id="typewriter"></div>
+      <p class="hero-desc">10+ years building enterprise backend systems at scale. Last 2 years leading AI integration, agentic workflows, and Copilot delivery on NRG Energy's digital transformation programme in Berlin.</p>
       <div class="hero-btns">
-        <button class="btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">View AI Tools</button>
-        <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
+        <button class="btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Try AI Tools</button>
+        <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-num">10+</div><div class="stat-label">Years Engineering</div></div>
-        <div><div class="stat-num">2+</div><div class="stat-label">Years AI Delivery</div></div>
-        <div><div class="stat-num">3M+</div><div class="stat-label">Users Impacted</div></div>
-        <div><div class="stat-num">12</div><div class="stat-label">AI Use Cases Delivered</div></div>
+        <div><div class="stat-num" data-target="10" data-suffix="+">0</div><div class="stat-label">Years Engineering</div></div>
+        <div><div class="stat-num" data-target="2" data-suffix="+">0</div><div class="stat-label">Years AI Delivery</div></div>
+        <div><div class="stat-num" data-target="3" data-suffix="M+">0</div><div class="stat-label">Users Impacted</div></div>
+        <div><div class="stat-num" data-target="12" data-suffix="">0</div><div class="stat-label">AI Use Cases</div></div>
       </div>
     </div>
-    <div class="tech-grid">
-      <div class="tech-pill"><div class="tech-pill-main">Azure OpenAI</div><div class="tech-pill-sub">GPT-4o</div></div>
-      <div class="tech-pill"><div class="tech-pill-main">LangChain</div><div class="tech-pill-sub">Agents</div></div>
-      <div class="tech-pill"><div class="tech-pill-main">RAG Pipelines</div><div class="tech-pill-sub">pgvector</div></div>
-      <div class="tech-pill"><div class="tech-pill-main">MS Copilot</div><div class="tech-pill-sub">M365</div></div>
-      <div class="tech-pill"><div class="tech-pill-main">Java</div><div class="tech-pill-sub">Spring Boot</div></div>
-      <div class="tech-pill"><div class="tech-pill-main">Power Automate</div><div class="tech-pill-sub">AI Builder</div></div>
+    <div class="bento">
+      <div class="bento-card">
+        <div class="bento-label">Primary AI Stack</div>
+        <div class="bento-value">Azure OpenAI</div>
+        <div class="bento-sub">GPT-4o &middot; AI Foundry</div>
+      </div>
+      <div class="bento-card">
+        <div class="bento-label">Orchestration</div>
+        <div class="bento-value">LangChain</div>
+        <div class="bento-sub">Agents &middot; RAG &middot; Tools</div>
+      </div>
+      <div class="bento-card">
+        <div class="bento-label">Vector Search</div>
+        <div class="bento-value">pgvector</div>
+        <div class="bento-sub">Qdrant &middot; Semantic Search</div>
+      </div>
+      <div class="bento-card">
+        <div class="bento-label">Productivity AI</div>
+        <div class="bento-value">MS Copilot</div>
+        <div class="bento-sub">M365 &middot; Power Automate</div>
+      </div>
+      <div class="bento-card">
+        <div class="bento-label">Backend</div>
+        <div class="bento-value">Java</div>
+        <div class="bento-sub">Spring Boot &middot; REST APIs</div>
+      </div>
+      <div class="bento-card">
+        <div class="bento-label">Location</div>
+        <div class="bento-value">Berlin, DE</div>
+        <div class="bento-sub">EU Work Rights &middot; Available Now</div>
+      </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
+<div class="glow-line"></div>
 
 <!-- ABOUT -->
-<div id="about">
-<div class="section">
-  <div class="section-tag">About Me</div>
-  <div class="section-title">From Java Backend to AI Integration</div>
-  <div class="section-sub">A career built on engineering fundamentals — now focused on delivering AI at enterprise scale</div>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot blue"></div><div class="tl-line"></div></div>
-      <div>
-        <div class="tl-date">2024 – Present · Berlin</div>
-        <div class="tl-role">AI Integration & Delivery Lead</div>
-        <div class="tl-co">NRG Energy / Direct Energy · Tekdoors Inc</div>
-        <div class="tl-desc">Leading AI adoption and delivery — Microsoft Copilot rollout, Azure AI Foundry pipelines, use case governance, GDPR compliance across a 3M-customer energy platform.</div>
-        <span class="tl-badge">AI Delivery · Azure OpenAI · Agentic Workflows</span>
-      </div>
+<div id="about" class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">About Me</div>
+      <div class="section-title">From Java Backend<br>to AI Integration</div>
+      <div class="section-sub">A career built on engineering depth — now leading AI delivery at enterprise scale</div>
     </div>
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot blue"></div><div class="tl-line"></div></div>
-      <div>
-        <div class="tl-date">2023 – 2024 · Berlin</div>
-        <div class="tl-role">Senior Technical Coordinator</div>
-        <div class="tl-co">NRG Energy / Direct Energy · Tekdoors Inc</div>
-        <div class="tl-desc">Technical coordination on customer portal rebuild. Copilot pilots, Power Automate automation, bridging engineering and business teams across Berlin and offshore India.</div>
-        <span class="tl-badge">Power Automate · MS Copilot · Azure DevOps</span>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-left"><div class="tl-dot-blue"></div><div class="tl-line"></div></div>
+        <div>
+          <div class="tl-date">2024 &ndash; Present &middot; Berlin</div>
+          <div class="tl-role">AI Integration & Delivery Lead</div>
+          <div class="tl-co">NRG Energy / Direct Energy &middot; Tekdoors Inc</div>
+          <div class="tl-desc">Leading AI adoption and delivery across a 3M-customer energy platform &mdash; Microsoft Copilot rollout, Azure AI Foundry pipelines, use case governance, and GDPR compliance for enterprise AI systems.</div>
+          <span class="tl-badge">AI Delivery &middot; Azure OpenAI &middot; Agentic Workflows &middot; GDPR</span>
+        </div>
       </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot gray"></div><div class="tl-line"></div></div>
-      <div>
-        <div class="tl-date">2019 – 2023 · Chicago → Berlin</div>
-        <div class="tl-role">Senior Java Developer & Scrum Master</div>
-        <div class="tl-co">BlueCross BlueShield · Tekdoors Inc</div>
-        <div class="tl-desc">HL7 FHIR API development across 36 US Blue Plans. Led 12-person cross-functional squad. Built backend services processing clinical data at national scale.</div>
-        <span class="tl-badge">Java · Spring Boot · HL7 FHIR · Agile</span>
+      <div class="tl-item reveal">
+        <div class="tl-left"><div class="tl-dot-blue"></div><div class="tl-line"></div></div>
+        <div>
+          <div class="tl-date">2023 &ndash; 2024 &middot; Berlin</div>
+          <div class="tl-role">Senior Technical Coordinator</div>
+          <div class="tl-co">NRG Energy / Direct Energy &middot; Tekdoors Inc</div>
+          <div class="tl-desc">Technical coordination on customer portal rebuild. First enterprise AI exposure &mdash; Copilot pilots, Power Automate automation, bridging engineering and business teams across Berlin and offshore India.</div>
+          <span class="tl-badge">Power Automate &middot; MS Copilot &middot; Azure DevOps</span>
+        </div>
       </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot gray"></div></div>
-      <div>
-        <div class="tl-date">2015 – 2019 · Chicago / Phoenix</div>
-        <div class="tl-role">Java Backend Developer</div>
-        <div class="tl-co">Northern Trust Bank · Marsh Technologies</div>
-        <div class="tl-desc">Enterprise Java development on treasury services and broker platforms. REST APIs, microservices, offshore team coordination.</div>
-        <span class="tl-badge">Java · REST APIs · Microservices · SQL</span>
+      <div class="tl-item reveal">
+        <div class="tl-left"><div class="tl-dot-gray"></div><div class="tl-line"></div></div>
+        <div>
+          <div class="tl-date">2019 &ndash; 2023 &middot; Chicago &rarr; Berlin</div>
+          <div class="tl-role">Senior Java Developer & Scrum Master</div>
+          <div class="tl-co">BlueCross BlueShield &middot; Tekdoors Inc</div>
+          <div class="tl-desc">HL7 FHIR API development across 36 US Blue Plans. Led 12-person cross-functional squad. Built backend services processing clinical data at national scale.</div>
+          <span class="tl-badge">Java &middot; Spring Boot &middot; HL7 FHIR &middot; Agile</span>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-left"><div class="tl-dot-gray"></div></div>
+        <div>
+          <div class="tl-date">2015 &ndash; 2019 &middot; Chicago / Phoenix</div>
+          <div class="tl-role">Java Backend Developer</div>
+          <div class="tl-co">Northern Trust Bank &middot; Marsh Technologies</div>
+          <div class="tl-desc">Enterprise Java development on treasury services and broker platforms. REST APIs, microservices, offshore team coordination.</div>
+          <span class="tl-badge">Java &middot; REST APIs &middot; Microservices &middot; SQL</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
 
-<hr class="section-divider">
+<div class="glow-line"></div>
 
 <!-- SKILLS -->
-<div id="skills">
-<div class="section">
-  <div class="section-tag">Skills</div>
-  <div class="section-title">What I Work With</div>
-  <div class="section-sub">Engineering foundation · AI integration · Enterprise delivery</div>
-  <div class="skills-grid">
-    <div class="skill-card blue">
-      <div class="skill-card-title">[AI] AI & Integration</div>
-      <div class="tags">
-        <span class="tag blue">Azure OpenAI (GPT-4o)</span>
-        <span class="tag blue">Azure AI Foundry</span>
-        <span class="tag blue">Prompt Engineering</span>
-        <span class="tag blue">RAG Pipelines</span>
-        <span class="tag blue">LangChain</span>
-        <span class="tag blue">LlamaIndex</span>
-        <span class="tag blue">pgvector</span>
-        <span class="tag blue">Qdrant</span>
-        <span class="tag blue">MS Copilot</span>
-        <span class="tag blue">Power Automate</span>
-        <span class="tag blue">Agentic Workflows</span>
-        <span class="tag blue">AI Governance</span>
-        <span class="tag blue">Claude API</span>
-        <span class="tag blue">EU AI Act</span>
-      </div>
+<div id="skills" class="section-wrap" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Skills</div>
+      <div class="section-title">What I Work With</div>
+      <div class="section-sub">Enterprise AI delivery &middot; Backend engineering &middot; Governance & compliance</div>
     </div>
-    <div class="skill-card gray">
-      <div class="skill-card-title">[CODE] Backend & Engineering</div>
-      <div class="tags">
-        <span class="tag gray">Java</span>
-        <span class="tag gray">Spring Boot</span>
-        <span class="tag gray">REST APIs</span>
-        <span class="tag gray">Microservices</span>
-        <span class="tag gray">SQL</span>
-        <span class="tag gray">HL7 FHIR</span>
-        <span class="tag gray">Azure DevOps</span>
-        <span class="tag gray">Git</span>
-        <span class="tag gray">Power BI</span>
-        <span class="tag gray">SharePoint</span>
-        <span class="tag gray">Jira</span>
-        <span class="tag gray">SAFe Agile</span>
-      </div>
+    <div class="skills-bento reveal">
+      <div class="skill-block ai"><div class="skill-ico">&#129504;</div><div class="skill-name">Azure OpenAI</div><div class="skill-cat">GPT-4o &middot; AI Foundry</div></div>
+      <div class="skill-block ai"><div class="skill-ico">&#128279;</div><div class="skill-name">RAG Pipelines</div><div class="skill-cat">Retrieval Augmented Gen</div></div>
+      <div class="skill-block ai"><div class="skill-ico">&#129302;</div><div class="skill-name">AI Agents</div><div class="skill-cat">Tool Use &middot; Multi-step</div></div>
+      <div class="skill-block ai"><div class="skill-ico">&#128200;</div><div class="skill-name">LangChain</div><div class="skill-cat">Orchestration framework</div></div>
+      <div class="skill-block ai"><div class="skill-ico">&#128196;</div><div class="skill-name">Prompt Engineering</div><div class="skill-cat">Zero-shot &middot; CoT &middot; Few-shot</div></div>
+      <div class="skill-block ai"><div class="skill-ico">&#128269;</div><div class="skill-name">pgvector / Qdrant</div><div class="skill-cat">Vector databases</div></div>
+      <div class="skill-block ai"><div class="skill-ico">&#9729;</div><div class="skill-name">MS Copilot</div><div class="skill-cat">M365 &middot; Copilot Studio</div></div>
+      <div class="skill-block ai"><div class="skill-ico">&#128101;</div><div class="skill-name">Power Automate</div><div class="skill-cat">AI Builder &middot; Flows</div></div>
+      <div class="skill-block"><div class="skill-ico">&#9749;</div><div class="skill-name">Java</div><div class="skill-cat">Spring Boot &middot; REST APIs</div></div>
+      <div class="skill-block"><div class="skill-ico">&#128295;</div><div class="skill-name">Microservices</div><div class="skill-cat">Architecture &middot; APIs</div></div>
+      <div class="skill-block"><div class="skill-ico">&#128202;</div><div class="skill-name">Power BI</div><div class="skill-cat">Dashboards &middot; Reporting</div></div>
+      <div class="skill-block"><div class="skill-ico">&#128736;</div><div class="skill-name">Azure DevOps</div><div class="skill-cat">CI/CD &middot; Pipelines</div></div>
+      <div class="skill-block"><div class="skill-ico">&#128203;</div><div class="skill-name">AI Governance</div><div class="skill-cat">GDPR &middot; EU AI Act</div></div>
+      <div class="skill-block"><div class="skill-ico">&#127775;</div><div class="skill-name">Agile / SAFe</div><div class="skill-cat">Delivery &middot; Scrum</div></div>
+      <div class="skill-block"><div class="skill-ico">&#128657;</div><div class="skill-name">HL7 FHIR</div><div class="skill-cat">Healthcare APIs</div></div>
+      <div class="skill-block"><div class="skill-ico">&#128640;</div><div class="skill-name">Claude API</div><div class="skill-cat">Anthropic &middot; Sonnet</div></div>
     </div>
   </div>
 </div>
-</div>
+
+<div class="glow-line"></div>
 
 <!-- AI TOOLS -->
-<div id="tools" class="tools-bg">
-  <div class="tools-inner">
-    <div class="section-tag">Live AI Tools</div>
-    <div class="section-title">Try My AI Tools</div>
-    <div class="section-sub">Built & deployed by Karthikeyan · Powered by Claude API · Each tool demonstrates a real enterprise AI use case</div>
-
-    <div class="tools-grid">
+<div id="tools" class="section-wrap tools-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Live AI Tools</div>
+      <div class="section-title">Try My AI Tools</div>
+      <div class="section-sub">Built & deployed by Karthikeyan &middot; Powered by Claude API &middot; Each demonstrates a real enterprise AI use case</div>
+    </div>
+    <div class="tools-grid reveal">
       <div class="tool-card" onclick="openTool('doc')">
-        <div class="tool-icon" style="background:#eff6ff;">[DOC]</div>
+        <div class="tool-icon-wrap" style="background:rgba(37,99,235,0.1);">&#128196;</div>
         <div class="tool-name">AI Document Analyser</div>
-        <div class="tool-desc">Paste any document text — contracts, specs, reports. Ask questions in plain English and get accurate answers grounded in the document.</div>
+        <div class="tool-desc">Paste any document &mdash; contracts, specs, reports. Ask questions and get accurate answers grounded in the document. RAG-style intelligence.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;">RAG · Document Intelligence</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(37,99,235,0.1);color:#93c5fd;border:1px solid rgba(37,99,235,0.2);">RAG &middot; Document Intelligence</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
       <div class="tool-card" onclick="openTool('req')">
-        <div class="tool-icon" style="background:#f0fdf4;">[REQ]</div>
+        <div class="tool-icon-wrap" style="background:rgba(34,197,94,0.1);">&#9989;</div>
         <div class="tool-name">Requirements Extractor</div>
-        <div class="tool-desc">Paste any requirements document. The agent extracts functional requirements, system components, risks, and open questions — structured and ready to use.</div>
+        <div class="tool-desc">Paste any requirements document. The agent extracts functional requirements, components, risks, and open questions &mdash; structured and ready to use.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#f0fdf4;color:#15803d;border:1px solid #86efac;">Agentic · Structured Output</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(34,197,94,0.1);color:#86efac;border:1px solid rgba(34,197,94,0.2);">Agentic &middot; Structured Output</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
       <div class="tool-card" onclick="openTool('usecase')">
-        <div class="tool-icon" style="background:#faf5ff;">[IDEA]</div>
+        <div class="tool-icon-wrap" style="background:rgba(168,85,247,0.1);">&#128161;</div>
         <div class="tool-name">AI Use Case Generator</div>
-        <div class="tool-desc">Describe your company, industry, and challenges. Get 5 prioritised AI use cases with effort/impact scoring and a quick implementation roadmap.</div>
+        <div class="tool-desc">Describe your company and challenges. Get 5 prioritised AI use cases with effort/impact scoring and implementation roadmap.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#faf5ff;color:#6d28d9;border:1px solid #ddd6fe;">AI Strategy</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(168,85,247,0.1);color:#c4b5fd;border:1px solid rgba(168,85,247,0.2);">AI Strategy</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
       <div class="tool-card" onclick="openTool('meeting')">
-        <div class="tool-icon" style="background:#fff7ed;">[NOTE]</div>
+        <div class="tool-icon-wrap" style="background:rgba(251,146,60,0.1);">&#128221;</div>
         <div class="tool-name">Meeting Notes Summariser</div>
-        <div class="tool-desc">Paste raw meeting notes — however messy. Get a structured summary with decisions made, action items, owners, and deadlines. Copilot-style output.</div>
+        <div class="tool-desc">Paste raw meeting notes &mdash; however messy. Get a structured summary with decisions, action items, owners, and deadlines. Copilot-style output.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;">Copilot-style · Claude API</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(251,146,60,0.1);color:#fdba74;border:1px solid rgba(251,146,60,0.2);">Copilot-style</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
       <div class="tool-card" onclick="openTool('prompt')">
-        <div class="tool-icon" style="background:#fdf4ff;">[OPT]</div>
+        <div class="tool-icon-wrap" style="background:rgba(236,72,153,0.1);">&#10024;</div>
         <div class="tool-name">Prompt Optimiser</div>
-        <div class="tool-desc">Paste any weak or vague prompt. Get an enterprise-grade rewrite with system prompt, few-shot examples, and explanation of every improvement made.</div>
+        <div class="tool-desc">Paste any weak prompt. Get an enterprise-grade rewrite with system prompt, few-shot examples, and explanation of every improvement.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#fdf4ff;color:#86198f;border:1px solid #f0abfc;">Prompt Engineering</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(236,72,153,0.1);color:#f9a8d4;border:1px solid rgba(236,72,153,0.2);">Prompt Engineering</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
       <div class="tool-card" onclick="openTool('workflow')">
-        <div class="tool-icon" style="background:#f0fdf4;">[FLOW]</div>
+        <div class="tool-icon-wrap" style="background:rgba(6,182,212,0.1);">&#128260;</div>
         <div class="tool-name">AI Workflow Designer</div>
-        <div class="tool-desc">Describe a business process. Get a complete agentic workflow design — steps, tools, decision points, human-in-the-loop gates, and GDPR considerations.</div>
+        <div class="tool-desc">Describe a business process. Get a complete agentic workflow &mdash; steps, tools, decision points, human-in-the-loop gates, GDPR considerations.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#f0fdf4;color:#0f766e;border:1px solid #99f6e4;">Orchestration · LangChain</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(6,182,212,0.1);color:#67e8f9;border:1px solid rgba(6,182,212,0.2);">Orchestration &middot; LangChain</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
       <div class="tool-card" onclick="openTool('gdpr')">
-        <div class="tool-icon" style="background:#fff1f2;">[GDPR]</div>
+        <div class="tool-icon-wrap" style="background:rgba(239,68,68,0.1);">&#128737;</div>
         <div class="tool-name">AI Governance Checker</div>
-        <div class="tool-desc">Describe an AI use case. Get a GDPR compliance assessment, data privacy risk score, human-in-the-loop recommendations, and EU AI Act classification.</div>
+        <div class="tool-desc">Describe an AI use case. Get GDPR compliance assessment, risk score, human-in-the-loop recommendations, and EU AI Act classification.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#fff1f2;color:#be123c;border:1px solid #fecdd3;">GDPR · EU AI Act</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(239,68,68,0.1);color:#fca5a5;border:1px solid rgba(239,68,68,0.2);">GDPR &middot; EU AI Act</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
       <div class="tool-card" onclick="openTool('roi')">
-        <div class="tool-icon" style="background:#eff6ff;">[ROI]</div>
+        <div class="tool-icon-wrap" style="background:rgba(37,99,235,0.1);">&#128202;</div>
         <div class="tool-name">AI ROI Calculator</div>
-        <div class="tool-desc">Describe your team, tasks, and AI tool. Get a detailed ROI analysis with time savings, cost reduction, payback period — like the NRG Copilot rollout.</div>
+        <div class="tool-desc">Describe your team and manual tasks. Get detailed ROI analysis with time savings, cost reduction, and payback period &mdash; like the NRG Copilot rollout.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;">AI Delivery · Business Value</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(37,99,235,0.1);color:#93c5fd;border:1px solid rgba(37,99,235,0.2);">Business Value</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
       <div class="tool-card" onclick="openTool('ready')">
-        <div class="tool-icon" style="background:#fefce8;">[AI]</div>
+        <div class="tool-icon-wrap" style="background:rgba(234,179,8,0.1);">&#129302;</div>
         <div class="tool-name">AI Readiness Assessor</div>
-        <div class="tool-desc">Describe your organisation's data, processes, and team. Get an AI readiness score with a prioritised action plan to start or accelerate your AI journey.</div>
+        <div class="tool-desc">Describe your organisation &mdash; data, processes, team, leadership. Get an AI readiness score with a prioritised 90-day action plan.</div>
         <div class="tool-footer">
-          <span class="tool-tag" style="background:#fefce8;color:#854d0e;border:1px solid #fde68a;">AI Strategy · Assessment</span>
-          <span class="tool-try">Try it →</span>
+          <span class="tool-tag" style="background:rgba(234,179,8,0.1);color:#fde047;border:1px solid rgba(234,179,8,0.2);">AI Strategy &middot; Assessment</span>
+          <span class="tool-try">Try it &rarr;</span>
         </div>
       </div>
     </div>
-
-    <div class="interview-tip">
-      <div class="interview-tip-title">💬 Every tool maps to a real interview question</div>
-      <div class="interview-tip-text">Document Analyser → "Tell me about a RAG pipeline you delivered" · Requirements Extractor → "How do you use agents for document processing?" · Governance Checker → "How do you handle GDPR in AI systems?" · ROI Calculator → "How do you measure AI project success?" · Workflow Designer → "How would you design an agentic workflow?"</div>
+    <div class="interview-tip reveal" style="margin-top:24px;">
+      <div class="interview-tip-title">Every tool maps to a real interview question</div>
+      <div class="interview-tip-text">Document Analyser &rarr; "Tell me about a RAG pipeline you delivered" &middot; Requirements Extractor &rarr; "How do you use agents for document processing?" &middot; Governance Checker &rarr; "How do you handle GDPR in AI systems?" &middot; ROI Calculator &rarr; "How do you measure AI project success?"</div>
     </div>
   </div>
 </div>
+
+<div class="glow-line"></div>
+
+<!-- CURRENTLY BUILDING -->
+<div class="section-wrap building-bg">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Now</div>
+      <div class="section-title">What I'm Building</div>
+      <div class="section-sub">Active projects and current focus areas</div>
+    </div>
+    <div class="building-grid reveal">
+      <div class="building-card">
+        <div class="live-badge"><div class="live-dot"></div>Live</div>
+        <div class="building-title">AI Portfolio Platform</div>
+        <div class="building-desc">9 live AI tools built on Claude API demonstrating RAG, agentic workflows, governance, and enterprise AI use cases.</div>
+        <div class="building-tag">karthikdevadoss.com</div>
+      </div>
+      <div class="building-card">
+        <div class="live-badge"><div class="live-dot"></div>Active</div>
+        <div class="building-title">AI Training Business</div>
+        <div class="building-desc">Personalised 1-on-1 AI coaching for professionals &mdash; showing anyone who uses a computer how AI saves 5-10 hours/week.</div>
+        <div class="building-tag">Berlin &middot; Launching Soon</div>
+      </div>
+      <div class="building-card">
+        <div class="live-badge" style="background:rgba(168,85,247,0.1);color:#c4b5fd;border-color:rgba(168,85,247,0.3);">Learning</div>
+        <div class="building-title">Deep AI Engineering</div>
+        <div class="building-desc">Going deeper into LangChain, vector databases, multi-agent systems, and Azure AI Foundry to become world-class in AI.</div>
+        <div class="building-tag">LangChain &middot; Qdrant &middot; AutoGen</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="glow-line"></div>
 
 <!-- PROJECTS -->
-<div id="projects">
-<div class="section">
-  <div class="section-tag">Projects</div>
-  <div class="section-title">Case Studies & Delivered Work</div>
-  <div class="section-sub">Real enterprise AI delivery · NRG Energy · BlueCross BlueShield</div>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-header">
-        <div>
-          <div class="project-title">Microsoft Copilot Rollout — Energy Sector</div>
-          <div class="project-org">NRG Energy / Direct Energy · Berlin · 2024</div>
-        </div>
-        <span class="project-status status-live">Delivered</span>
-      </div>
-      <div class="project-desc">Led end-to-end delivery of Microsoft Copilot adoption across a cross-functional squad of 18 people. Designed the use case framework, ran identification workshops, managed GDPR compliance review for each use case, and built the Power BI dashboard tracking adoption metrics weekly for IT leadership.</div>
-      <div class="project-outcome"><strong>Outcome:</strong> 6 hours/week saved per team member · 4 use cases in production · Full GDPR sign-off achieved · Monthly governance cadence established</div>
-      <div class="tags">
-        <span class="tag blue">MS Copilot</span><span class="tag blue">Power Automate</span><span class="tag blue">Azure AI Foundry</span><span class="tag blue">GDPR</span><span class="tag gray">Power BI</span><span class="tag gray">Change Management</span>
-      </div>
+<div id="projects" class="section-wrap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Projects</div>
+      <div class="section-title">Case Studies &<br>Delivered Work</div>
+      <div class="section-sub">Real enterprise AI delivery &middot; NRG Energy &middot; BlueCross BlueShield</div>
     </div>
-    <div class="project-card">
-      <div class="project-header">
-        <div>
-          <div class="project-title">Document Intelligence Pipeline — Requirements Processing</div>
-          <div class="project-org">NRG Digital Transformation · Berlin · 2024–2025</div>
+    <div class="reveal">
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Microsoft Copilot Rollout &mdash; Energy Sector</div>
+            <div class="project-org">NRG Energy / Direct Energy &middot; Berlin &middot; 2024</div>
+          </div>
+          <span class="project-status status-live">Delivered</span>
         </div>
-        <span class="project-status status-live">Delivered</span>
-      </div>
-      <div class="project-desc">Coordinated delivery of a RAG-based document intelligence pipeline processing energy platform requirements documents and system specifications. Owned use case definition, testing strategy, stakeholder adoption, and governance. Worked with Azure team on AI Foundry deployment and prompt flow configuration.</div>
-      <div class="project-outcome"><strong>Outcome:</strong> Requirements analysis time reduced by 40% · 3 document types in production · Human-in-the-loop review process designed and implemented</div>
-      <div class="tags">
-        <span class="tag blue">RAG</span><span class="tag blue">pgvector</span><span class="tag blue">Azure OpenAI</span><span class="tag blue">Prompt Flow</span><span class="tag gray">Document Intelligence</span><span class="tag gray">AI Testing</span>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-header">
-        <div>
-          <div class="project-title">AI Governance Framework & Use Case Pipeline</div>
-          <div class="project-org">NRG Energy · Berlin · 2025</div>
+        <div class="project-desc">Led end-to-end delivery of Microsoft Copilot adoption across a cross-functional squad of 18 people. Designed use case framework, ran identification workshops, managed GDPR compliance review for each use case, and built the Power BI dashboard tracking adoption metrics weekly for IT leadership.</div>
+        <div class="project-outcome"><strong>Outcome:</strong> 6 hours/week saved per team member &middot; 4 use cases in production &middot; Full GDPR sign-off achieved &middot; Monthly governance cadence running</div>
+        <div class="tags">
+          <span class="tag-blue">MS Copilot</span><span class="tag-blue">Power Automate</span><span class="tag-blue">Azure AI Foundry</span><span class="tag-blue">GDPR</span><span class="tag-gray">Power BI</span><span class="tag-gray">Change Management</span>
         </div>
-        <span class="project-status status-case">Case Study</span>
       </div>
-      <div class="project-desc">Built and chaired the AI use case governance process across the NRG programme. Designed the prioritisation framework (effort vs impact scoring), ran monthly AI governance committee with IT, Legal, GDPR, and Business stakeholders. Managed a pipeline of 12 approved use cases from ideation to production.</div>
-      <div class="project-outcome"><strong>Outcome:</strong> 12 use cases approved · 4 in production · GDPR-compliant data handling framework established</div>
-      <div class="tags">
-        <span class="tag blue">AI Governance</span><span class="tag blue">EU AI Act</span><span class="tag blue">GDPR</span><span class="tag gray">Stakeholder Management</span><span class="tag gray">ROI Measurement</span><span class="tag gray">Power BI</span>
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Document Intelligence Pipeline &mdash; Requirements Processing</div>
+            <div class="project-org">NRG Digital Transformation &middot; Berlin &middot; 2024&ndash;2025</div>
+          </div>
+          <span class="project-status status-live">Delivered</span>
+        </div>
+        <div class="project-desc">Coordinated delivery of a RAG-based document intelligence pipeline processing energy platform requirements and system specifications. Owned use case definition, testing strategy, stakeholder adoption, and governance. Worked with Azure team on AI Foundry deployment and prompt flow configuration.</div>
+        <div class="project-outcome"><strong>Outcome:</strong> Requirements analysis time reduced by 40% &middot; 3 document types in production &middot; Human-in-the-loop review process designed and implemented</div>
+        <div class="tags">
+          <span class="tag-blue">RAG</span><span class="tag-blue">pgvector</span><span class="tag-blue">Azure OpenAI</span><span class="tag-blue">Prompt Flow</span><span class="tag-gray">AI Testing</span><span class="tag-gray">Governance</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">AI Governance Framework & Use Case Pipeline</div>
+            <div class="project-org">NRG Energy &middot; Berlin &middot; 2025</div>
+          </div>
+          <span class="project-status status-case">Case Study</span>
+        </div>
+        <div class="project-desc">Built and chaired the AI use case governance process across the NRG programme. Designed prioritisation framework (effort vs impact), ran monthly AI governance committee with IT, Legal, GDPR, and Business stakeholders. Managed pipeline of 12 approved use cases from ideation to production.</div>
+        <div class="project-outcome"><strong>Outcome:</strong> 12 use cases approved &middot; 4 in production &middot; GDPR-compliant data handling framework established</div>
+        <div class="tags">
+          <span class="tag-blue">AI Governance</span><span class="tag-blue">EU AI Act</span><span class="tag-blue">GDPR</span><span class="tag-gray">Stakeholder Management</span><span class="tag-gray">ROI Measurement</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
 
-<hr class="section-divider">
+<div class="glow-line"></div>
 
 <!-- BLOG -->
-<div id="blog">
-<div class="section">
-  <div class="section-tag">Blog</div>
-  <div class="section-title">Articles & Insights</div>
-  <div class="section-sub">Practical AI delivery from the enterprise trenches</div>
-  <div class="blog-grid">
-    <div class="blog-item">
-      <div>
-        <span class="blog-cat">AI Delivery</span>
-        <div class="blog-title">How Microsoft Copilot Actually Changed Our Team's Delivery Speed</div>
-        <div class="blog-desc">What really happened when we rolled out Copilot to 18 people — the wins, the resistance, the GDPR hurdles, and what I'd do differently.</div>
-        <div class="blog-meta">6 min read · May 2025</div>
-      </div>
-      <div class="blog-arrow">→</div>
+<div id="blog" class="section-wrap" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Blog</div>
+      <div class="section-title">Articles & Insights</div>
+      <div class="section-sub">Practical AI delivery from the enterprise trenches</div>
     </div>
-    <div class="blog-item">
-      <div>
-        <span class="blog-cat">AI Strategy</span>
-        <div class="blog-title">5 AI Use Cases That Actually Delivered ROI in an Enterprise Programme</div>
-        <div class="blog-desc">Not the use cases people talk about at conferences. The ones that actually shipped, got adopted, and saved real hours at NRG Energy.</div>
-        <div class="blog-meta">5 min read · March 2025</div>
+    <div class="reveal">
+      <div class="blog-item">
+        <div>
+          <span class="blog-cat">AI Delivery</span>
+          <div class="blog-title">How Microsoft Copilot Actually Changed Our Team's Delivery Speed</div>
+          <div class="blog-desc">What really happened when we rolled out Copilot to 18 people &mdash; the wins, the resistance, the GDPR hurdles, and what I'd do differently.</div>
+          <div class="blog-meta">6 min read &middot; May 2025</div>
+        </div>
+        <div class="blog-arrow">&rarr;</div>
       </div>
-      <div class="blog-arrow">→</div>
-    </div>
-    <div class="blog-item">
-      <div>
-        <span class="blog-cat">AI Governance</span>
-        <div class="blog-title">What Nobody Tells You About Running AI Projects — GDPR, Hallucination & Change</div>
-        <div class="blog-desc">The three things that slow every enterprise AI project down — and how we handled them on a 3M-customer platform in Germany.</div>
-        <div class="blog-meta">7 min read · January 2025</div>
+      <div class="blog-item">
+        <div>
+          <span class="blog-cat">AI Strategy</span>
+          <div class="blog-title">5 AI Use Cases That Actually Delivered ROI in an Enterprise Programme</div>
+          <div class="blog-desc">Not the use cases people talk about at conferences. The ones that shipped, got adopted, and saved real hours at NRG Energy.</div>
+          <div class="blog-meta">5 min read &middot; March 2025</div>
+        </div>
+        <div class="blog-arrow">&rarr;</div>
       </div>
-      <div class="blog-arrow">→</div>
+      <div class="blog-item">
+        <div>
+          <span class="blog-cat">AI Governance</span>
+          <div class="blog-title">What Nobody Tells You About Running AI Projects &mdash; GDPR, Hallucination & Change</div>
+          <div class="blog-desc">The three things that slow every enterprise AI project down &mdash; and how we handled them on a 3M-customer platform in Germany.</div>
+          <div class="blog-meta">7 min read &middot; January 2025</div>
+        </div>
+        <div class="blog-arrow">&rarr;</div>
+      </div>
     </div>
   </div>
 </div>
-</div>
+
+<div class="glow-line"></div>
 
 <!-- CONTACT -->
-<div id="contact" class="contact-bg">
-  <div class="contact-inner">
-    <div>
-      <div class="avail-badge"><div class="avail-dot"></div><span class="avail-text">Available for roles in Berlin</span></div>
-      <div class="section-title" style="margin-bottom:8px;">Let's Connect</div>
-      <div style="font-size:14px;color:#64748b;line-height:1.7;">Open to Senior AI Integration, AI Delivery, and Software Engineering roles in Berlin. Happy to chat about your team's AI challenges too.</div>
-      <div class="contact-links">
-        <div class="contact-link">
-          <span>📧</span>
-          <span class="contact-link-label">Email</span>
-          <span class="contact-link-val">itskarthiksid@yahoo.com</span>
+<div id="contact" class="section-wrap contact-bg">
+  <div class="section-inner">
+    <div class="contact-grid reveal">
+      <div>
+        <div class="avail-badge">
+          <div class="badge-dot"></div>
+          <span style="font-size:12px;color:#86efac;font-weight:500;">Available for roles in Berlin</span>
         </div>
-        <div class="contact-link">
-          <span>💼</span>
-          <span class="contact-link-label">LinkedIn</span>
-          <span class="contact-link-val">linkedin.com/in/karthikeyandoss</span>
-        </div>
-        <div class="contact-link">
-          <span>🐙</span>
-          <span class="contact-link-label">GitHub</span>
-          <span class="contact-link-val">github.com/karthikdevadoss</span>
-        </div>
-        <div class="contact-link">
-          <span>🌐</span>
-          <span class="contact-link-label">Portfolio</span>
-          <span class="contact-link-val">karthikdevadoss.com</span>
+        <div class="contact-title">Let's Connect</div>
+        <div class="contact-desc">Open to Senior AI Integration, AI Delivery, and Software Engineering roles in Berlin. Happy to chat about your team's AI challenges too.</div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:itskarthiksid@yahoo.com">
+            <span>&#128231;</span>
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-val">itskarthiksid@yahoo.com</span>
+          </a>
+          <a class="contact-link" href="https://linkedin.com/in/karthikeyandoss" target="_blank">
+            <span>&#128188;</span>
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-val">linkedin.com/in/karthikeyandoss</span>
+          </a>
+          <a class="contact-link" href="https://github.com/karthikdevadoss" target="_blank">
+            <span>&#128025;</span>
+            <span class="contact-link-label">GitHub</span>
+            <span class="contact-link-val">github.com/karthikdevadoss</span>
+          </a>
+          <a class="contact-link" href="https://x.com/karthikdosscs" target="_blank">
+            <span>&#128038;</span>
+            <span class="contact-link-label">Twitter / X</span>
+            <span class="contact-link-val">@karthikdosscs</span>
+          </a>
         </div>
       </div>
-    </div>
-    <div>
-      <div class="contact-form">
-        <div class="form-row">
-          <div class="form-field"><label class="form-label">Name</label><input class="form-input" placeholder="Your name"></div>
-          <div class="form-field"><label class="form-label">Email</label><input class="form-input" placeholder="your@email.com"></div>
+      <div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-field"><label class="form-label">Name</label><input class="form-input" placeholder="Your name"></div>
+            <div class="form-field"><label class="form-label">Email</label><input class="form-input" placeholder="your@email.com"></div>
+          </div>
+          <div class="form-field"><label class="form-label">Company</label><input class="form-input" placeholder="Company name"></div>
+          <div class="form-field"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell me about the role or project..."></textarea></div>
+          <button class="form-btn">Send Message</button>
         </div>
-        <div class="form-field"><label class="form-label">Company</label><input class="form-input" placeholder="Company name"></div>
-        <div class="form-field"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell me about the role or project..."></textarea></div>
-        <button class="form-btn">Send Message</button>
       </div>
     </div>
   </div>
@@ -551,7 +1190,7 @@
 <footer>
   <div>
     <div class="footer-name">Karthikeyan Devadoss</div>
-    <div class="footer-sub">Senior Software Engineer → AI Integration & Delivery Specialist · Berlin</div>
+    <div class="footer-sub">Senior Software Engineer &rarr; AI Integration & Delivery Specialist &middot; Berlin</div>
   </div>
   <div class="footer-links">
     <a href="#about">About</a>
@@ -566,84 +1205,212 @@
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-title" id="modal-title">Tool</div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-title" id="modal-title"></div>
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
     </div>
     <div class="modal-desc" id="modal-desc"></div>
     <div class="api-key-row">
       <input type="password" id="api-key" placeholder="Paste your Anthropic API key (sk-ant-...)">
     </div>
-    <div class="api-key-note">Your API key is used only in your browser and never stored. Get one free at console.anthropic.com</div>
+    <div class="api-key-note">Your API key is used only in your browser and never stored. Get one at console.anthropic.com</div>
     <textarea id="modal-input" placeholder=""></textarea>
     <button class="modal-btn" id="modal-btn" onclick="runTool()">Run Tool</button>
-    <div class="modal-loading" id="modal-loading">⏳ Claude is thinking...</div>
+    <div class="modal-loading" id="modal-loading">&#9203; Claude is thinking...</div>
     <div class="modal-result" id="modal-result"></div>
   </div>
 </div>
 
 <script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const cursorGlow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  cursorGlow.style.left = e.clientX + 'px';
+  cursorGlow.style.top = e.clientY + 'px';
+});
+
+// LOADER
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+    startAnimations();
+  }, 1800);
+});
+
+// NEURAL NETWORK CANVAS
+const canvas = document.getElementById('neural');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let animFrame;
+
+function resizeCanvas() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+
+function initParticles() {
+  particles = [];
+  const count = Math.floor((canvas.width * canvas.height) / 12000);
+  for (let i = 0; i < count; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 2 + 1
+    });
+  }
+}
+
+function drawNeural() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(37,99,235,0.5)';
+    ctx.fill();
+  });
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = `rgba(37,99,235,${0.15 * (1 - dist / 120)})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+  animFrame = requestAnimationFrame(drawNeural);
+}
+
+window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+resizeCanvas(); initParticles(); drawNeural();
+
+// TYPEWRITER
+function startAnimations() {
+  const text = 'Senior Software Engineer \u2192 AI Integration & Delivery Specialist';
+  const el = document.getElementById('typewriter');
+  let i = 0;
+  el.style.borderRight = '2px solid #06b6d4';
+  const t = setInterval(() => {
+    if (i < text.length) { el.textContent += text[i++]; }
+    else { clearInterval(t); setTimeout(() => el.style.borderRight = 'none', 800); }
+  }, 40);
+}
+
+// COUNTER ANIMATION
+const counters = document.querySelectorAll('.stat-num[data-target]');
+let counted = false;
+function animateCounters() {
+  if (counted) return;
+  counted = true;
+  counters.forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix;
+    let current = 0;
+    const inc = target / 40;
+    const t = setInterval(() => {
+      current += inc;
+      if (current >= target) { current = target; clearInterval(t); }
+      el.textContent = Math.floor(current) + suffix;
+    }, 40);
+  });
+}
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.closest('.hero-stats') || document.querySelector('.hero-stats').contains(e.target)) {
+        animateCounters();
+      }
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+
+// Trigger counter when hero stats visible
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) animateCounters(); });
+}, { threshold: 0.5 });
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) statsObserver.observe(statsEl);
+
+// TOOLS
 const tools = {
   doc: {
-    title: "AI Document Analyser",
-    desc: "Paste your document text below, then ask a question about it. Claude will answer based on the document content — demonstrating RAG-style document intelligence.",
-    placeholder: "Paste your document text here, then on a new line write:\n\nMY QUESTION: [your question about the document]",
-    prompt: (input) => `You are a document intelligence assistant. A user has provided a document and a question. Extract the relevant information from the document and answer the question accurately.\n\nDOCUMENT AND QUESTION:\n${input}\n\nProvide a clear, structured answer based only on the document content. If the answer isn't in the document, say so.`
+    title: 'AI Document Analyser',
+    desc: 'Paste your document text below, then ask a question about it. Claude will answer based on the document content — demonstrating RAG-style document intelligence.',
+    placeholder: 'Paste your document text here, then on a new line write:\n\nMY QUESTION: [your question about the document]',
+    prompt: (input) => `You are a document intelligence assistant. Answer the question based only on the provided document.\n\nDOCUMENT AND QUESTION:\n${input}\n\nProvide a clear, structured answer. If the answer is not in the document, say so.`
   },
   req: {
-    title: "Requirements Extractor",
-    desc: "Paste any requirements document or project brief. The AI agent will extract and structure it into functional requirements, system components, risks, and open questions.",
-    placeholder: "Paste your requirements document or project brief here...",
-    prompt: (input) => `You are an expert business analyst and AI agent specialising in requirements extraction. Analyse the following document and extract structured information.\n\nDOCUMENT:\n${input}\n\nProvide output in this exact structure:\n\n## Functional Requirements\n[numbered list]\n\n## System Components\n[numbered list]\n\n## Risks & Concerns\n[numbered list]\n\n## Open Questions\n[numbered list]\n\n## Summary\n[2-3 sentence summary]`
+    title: 'Requirements Extractor',
+    desc: 'Paste any requirements document or project brief. The AI agent will extract and structure it into functional requirements, components, risks, and open questions.',
+    placeholder: 'Paste your requirements document or project brief here...',
+    prompt: (input) => `You are an expert business analyst. Extract structured information from this document.\n\nDOCUMENT:\n${input}\n\n## Functional Requirements\n[numbered list]\n\n## System Components\n[numbered list]\n\n## Risks & Concerns\n[numbered list]\n\n## Open Questions\n[numbered list]\n\n## Summary\n[2-3 sentences]`
   },
   usecase: {
-    title: "AI Use Case Generator",
-    desc: "Describe your company, industry, team size, and current challenges. Get 5 prioritised AI use cases with effort/impact scoring.",
-    placeholder: "Example: We are a 200-person logistics company in Germany. We process 500 invoices per day manually, our customer support team answers the same questions repeatedly, and our sales team spends hours writing proposals...",
-    prompt: (input) => `You are an AI strategy consultant specialising in enterprise AI adoption. Based on the company description below, identify the 5 highest-value AI use cases.\n\nCOMPANY DESCRIPTION:\n${input}\n\nFor each use case provide:\n- Use Case Name\n- Problem it solves\n- AI approach (RAG, agent, automation, etc)\n- Effort: Low/Medium/High\n- Impact: Low/Medium/High\n- Time to first value\n- Key risks\n\nEnd with a recommended implementation order with brief reasoning.`
+    title: 'AI Use Case Generator',
+    desc: 'Describe your company, industry, team size, and current challenges. Get 5 prioritised AI use cases with effort/impact scoring.',
+    placeholder: 'Example: We are a 200-person logistics company in Germany. We process 500 invoices per day manually, our customer support team answers the same questions repeatedly...',
+    prompt: (input) => `You are an AI strategy consultant. Identify the 5 highest-value AI use cases for this company.\n\nCOMPANY DESCRIPTION:\n${input}\n\nFor each use case provide: Name, Problem solved, AI approach, Effort (Low/Medium/High), Impact (Low/Medium/High), Time to first value, Key risks.\n\nEnd with recommended implementation order.`
   },
   meeting: {
-    title: "Meeting Notes Summariser",
-    desc: "Paste raw meeting notes — however messy, with abbreviations, half-sentences, or shorthand. Get a structured Copilot-style summary.",
-    placeholder: "Paste your raw meeting notes here...",
-    prompt: (input) => `You are an AI assistant that transforms raw meeting notes into structured summaries, similar to Microsoft Copilot for Teams.\n\nRAW MEETING NOTES:\n${input}\n\nProvide output in this structure:\n\n## Meeting Summary\n[2-3 sentence overview]\n\n## Key Decisions Made\n[bullet list]\n\n## Action Items\n| Action | Owner | Deadline |\n|--------|-------|----------|\n\n## Key Discussion Points\n[bullet list]\n\n## Follow-up Required\n[bullet list]`
+    title: 'Meeting Notes Summariser',
+    desc: 'Paste raw meeting notes. Get a structured Copilot-style summary with decisions, actions, owners, and deadlines.',
+    placeholder: 'Paste your raw meeting notes here...',
+    prompt: (input) => `Transform these raw meeting notes into a structured summary.\n\nRAW NOTES:\n${input}\n\n## Meeting Summary\n[2-3 sentence overview]\n\n## Key Decisions Made\n[bullet list]\n\n## Action Items\n| Action | Owner | Deadline |\n|--------|-------|----------|\n\n## Key Discussion Points\n[bullet list]\n\n## Follow-up Required\n[bullet list]`
   },
   prompt: {
-    title: "Prompt Optimiser",
-    desc: "Paste any weak, vague, or basic prompt. Get an enterprise-grade rewrite with system prompt, structure, and explanation of improvements.",
-    placeholder: "Paste your current prompt here...\n\nExample: 'summarise this document' or 'help me write an email'",
-    prompt: (input) => `You are an expert prompt engineer specialising in enterprise LLM applications. Improve the following prompt.\n\nORIGINAL PROMPT:\n${input}\n\nProvide:\n\n## Problems with the original\n[bullet list of issues]\n\n## Optimised System Prompt\n[the improved system prompt]\n\n## Optimised User Prompt Template\n[template with placeholders]\n\n## Example Usage\n[show an example with the template filled in]\n\n## What was improved and why\n[explanation of each change]`
+    title: 'Prompt Optimiser',
+    desc: 'Paste any weak or vague prompt. Get an enterprise-grade rewrite with system prompt, structure, and explanation of improvements.',
+    placeholder: 'Paste your current prompt here...\n\nExample: "summarise this document" or "help me write an email"',
+    prompt: (input) => `You are an expert prompt engineer. Improve the following prompt.\n\nORIGINAL PROMPT:\n${input}\n\n## Problems with the original\n[bullet list]\n\n## Optimised System Prompt\n[improved system prompt]\n\n## Optimised User Prompt Template\n[template with placeholders]\n\n## Example Usage\n[filled-in example]\n\n## What was improved and why\n[explanation]`
   },
   workflow: {
-    title: "AI Workflow Designer",
-    desc: "Describe a business process you want to automate or enhance with AI. Get a complete agentic workflow design.",
-    placeholder: "Example: Our procurement team manually reviews supplier invoices, checks them against purchase orders, flags discrepancies, and routes for approval. This takes 2 hours per day across 3 people...",
-    prompt: (input) => `You are an AI solutions architect specialising in agentic workflow design. Design a complete AI workflow for the following business process.\n\nBUSINESS PROCESS:\n${input}\n\n## Workflow Overview\n[Brief description of the AI solution]\n\n## Step-by-Step Agentic Workflow\n[numbered steps with: action, AI component used, human touchpoint if needed]\n\n## Tools & Technologies\n[list with brief explanation of each]\n\n## Human-in-the-Loop Gates\n[where and why humans need to review]\n\n## GDPR & Data Privacy Considerations\n[specific considerations for this workflow]\n\n## Expected Outcomes\n[time saved, error reduction, cost impact]\n\n## Implementation Roadmap\n[3 phases: Pilot, Scale, Optimise]`
+    title: 'AI Workflow Designer',
+    desc: 'Describe a business process. Get a complete agentic workflow design with steps, tools, decision points, and GDPR considerations.',
+    placeholder: 'Example: Our procurement team manually reviews supplier invoices, checks against purchase orders, flags discrepancies, and routes for approval. This takes 2 hours per day...',
+    prompt: (input) => `You are an AI solutions architect. Design a complete agentic workflow.\n\nBUSINESS PROCESS:\n${input}\n\n## Workflow Overview\n[brief description]\n\n## Step-by-Step Agentic Workflow\n[numbered steps with AI component and human touchpoint]\n\n## Tools & Technologies\n[list with explanations]\n\n## Human-in-the-Loop Gates\n[where and why humans review]\n\n## GDPR & Data Privacy Considerations\n[specific considerations]\n\n## Expected Outcomes\n[time saved, error reduction, cost impact]\n\n## Implementation Roadmap\n[3 phases]`
   },
   gdpr: {
-    title: "AI Governance Checker",
-    desc: "Describe an AI use case you're planning. Get a GDPR compliance assessment, risk score, and EU AI Act classification.",
-    placeholder: "Example: We want to use an AI model to automatically analyse customer emails, categorise them by topic, and generate draft responses for our support team to review and send...",
-    prompt: (input) => `You are an AI governance and compliance specialist with expertise in GDPR and the EU AI Act. Assess the following AI use case.\n\nAI USE CASE:\n${input}\n\n## GDPR Assessment\n- Personal data involved: [Yes/No + what type]\n- Legal basis required: [which basis applies]\n- Data minimisation: [recommendations]\n- Retention policy: [recommendations]\n- Risk level: [Low/Medium/High]\n\n## EU AI Act Classification\n- Risk category: [Unacceptable/High/Limited/Minimal]\n- Reasoning: [explanation]\n- Compliance requirements: [what's needed]\n\n## Human-in-the-Loop Requirements\n[when and why human review is needed]\n\n## Recommended Controls\n[numbered list of governance controls]\n\n## Overall Compliance Score\n[score out of 10 with explanation]\n\n## Next Steps\n[prioritised action list]`
+    title: 'AI Governance Checker',
+    desc: 'Describe an AI use case. Get GDPR compliance assessment, risk score, and EU AI Act classification.',
+    placeholder: 'Example: We want to use AI to automatically analyse customer emails, categorise them, and generate draft responses for our support team...',
+    prompt: (input) => `You are an AI governance and compliance specialist. Assess this AI use case.\n\nAI USE CASE:\n${input}\n\n## GDPR Assessment\n- Personal data involved:\n- Legal basis required:\n- Data minimisation recommendations:\n- Risk level: [Low/Medium/High]\n\n## EU AI Act Classification\n- Risk category:\n- Compliance requirements:\n\n## Human-in-the-Loop Requirements\n[when and why]\n\n## Recommended Controls\n[numbered list]\n\n## Overall Compliance Score\n[X/10 with explanation]\n\n## Next Steps\n[prioritised actions]`
   },
   roi: {
-    title: "AI ROI Calculator",
-    desc: "Describe your team, the task you want to automate, and the AI tool. Get a detailed ROI analysis.",
-    placeholder: "Example: Team of 8 people. Each person spends 3 hours per week writing status reports. Average salary €60,000/year. We want to use Microsoft Copilot (€30/user/month) to automate this...",
-    prompt: (input) => `You are an AI business value analyst. Calculate the ROI for the following AI implementation.\n\nSCENARIO:\n${input}\n\nProvide a detailed analysis:\n\n## Current State Cost\n[calculate hours × people × cost]\n\n## AI Tool Cost\n[annual cost of the tool]\n\n## Time Savings Analysis\n- Hours saved per person per week:\n- Hours saved across team per week:\n- Hours saved per year:\n\n## Financial Impact\n- Annual time savings value: €\n- Annual tool cost: €\n- Net annual saving: €\n- ROI percentage:\n- Payback period:\n\n## Additional Benefits (non-financial)\n[quality, consistency, employee satisfaction etc]\n\n## Risks & Assumptions\n[key assumptions made and risks]\n\n## Recommendation\n[clear go/no-go with reasoning]`
+    title: 'AI ROI Calculator',
+    desc: 'Describe your team and manual task. Get a detailed ROI analysis with payback period.',
+    placeholder: 'Example: Team of 8 people. Each spends 3 hours/week writing status reports. Average salary €60,000/year. We want to use Microsoft Copilot (€30/user/month)...',
+    prompt: (input) => `You are an AI business value analyst. Calculate ROI for this AI implementation.\n\nSCENARIO:\n${input}\n\n## Current State Cost\n[hours x people x cost]\n\n## AI Tool Cost\n[annual cost]\n\n## Time Savings Analysis\n- Hours saved per person per week:\n- Hours saved per year:\n\n## Financial Impact\n- Annual savings value: EUR\n- Annual tool cost: EUR\n- Net annual saving: EUR\n- ROI percentage:\n- Payback period:\n\n## Additional Benefits\n[quality, consistency, satisfaction]\n\n## Recommendation\n[go/no-go with reasoning]`
   },
   ready: {
-    title: "AI Readiness Assessor",
-    desc: "Describe your organisation — size, industry, current tech stack, data situation, and team. Get an AI readiness score and action plan.",
-    placeholder: "Example: 500-person manufacturing company in Germany. We use SAP, have 10 years of production data in SQL databases, small IT team of 5, no data scientists, leadership is interested in AI but unsure where to start...",
-    prompt: (input) => `You are an AI transformation consultant. Assess the AI readiness of the following organisation.\n\nORGANISATION DESCRIPTION:\n${input}\n\n## AI Readiness Score: [X/10]\n\n## Assessment by Dimension\n| Dimension | Score | Comment |\n|-----------|-------|----------|\n| Data quality & availability | /10 | |\n| Technical infrastructure | /10 | |\n| Team skills & capability | /10 | |\n| Leadership & culture | /10 | |\n| Process maturity | /10 | |\n| Budget & investment | /10 | |\n\n## Strengths\n[what's working in your favour]\n\n## Gaps to Address\n[prioritised list]\n\n## Recommended Starting Point\n[the one AI use case to start with and why]\n\n## 90-Day Action Plan\n- Month 1: \n- Month 2: \n- Month 3: \n\n## Quick Wins (this month)\n[3 things you can do immediately]`
+    title: 'AI Readiness Assessor',
+    desc: 'Describe your organisation. Get an AI readiness score and 90-day action plan.',
+    placeholder: 'Example: 500-person manufacturing company in Germany. We use SAP, have 10 years of production data in SQL, small IT team of 5, no data scientists, leadership interested in AI but unsure where to start...',
+    prompt: (input) => `You are an AI transformation consultant. Assess AI readiness.\n\nORGANISATION:\n${input}\n\n## AI Readiness Score: [X/10]\n\n## Assessment by Dimension\n| Dimension | Score | Comment |\n|-----------|-------|----------|\n| Data quality | /10 | |\n| Technical infrastructure | /10 | |\n| Team skills | /10 | |\n| Leadership & culture | /10 | |\n| Process maturity | /10 | |\n\n## Strengths\n[what's working]\n\n## Gaps to Address\n[prioritised list]\n\n## Recommended Starting Point\n[one AI use case to start with and why]\n\n## 90-Day Action Plan\n- Month 1:\n- Month 2:\n- Month 3:\n\n## Quick Wins\n[3 things to do this month]`
   }
 };
 
 let currentTool = null;
 
-function openTool(toolKey) {
-  currentTool = toolKey;
-  const tool = tools[toolKey];
+function openTool(key) {
+  currentTool = key;
+  const tool = tools[key];
   document.getElementById('modal-title').textContent = tool.title;
   document.getElementById('modal-desc').textContent = tool.desc;
   document.getElementById('modal-input').placeholder = tool.placeholder;
@@ -655,51 +1422,36 @@ function openTool(toolKey) {
   document.getElementById('modal').classList.add('open');
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
 
 async function runTool() {
   const apiKey = document.getElementById('api-key').value.trim();
   const input = document.getElementById('modal-input').value.trim();
   if (!apiKey) { alert('Please enter your Anthropic API key'); return; }
-  if (!input) { alert('Please enter some text to analyse'); return; }
-
+  if (!input) { alert('Please enter some text'); return; }
   const tool = tools[currentTool];
   document.getElementById('modal-btn').disabled = true;
   document.getElementById('modal-loading').classList.add('visible');
   document.getElementById('modal-result').classList.remove('visible');
-
   try {
     const response = await fetch('/api/claude', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 1500,
-        messages: [{ role: 'user', content: tool.prompt(input) }]
-      })
+      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1500, messages: [{ role: 'user', content: tool.prompt(input) }] })
     });
     const data = await response.json();
     const result = data.content[0].text;
     document.getElementById('modal-result').textContent = result;
     document.getElementById('modal-result').classList.add('visible');
   } catch (err) {
-    document.getElementById('modal-result').textContent = 'Error: ' + err.message + '\n\nMake sure your API key is correct and you have credits available at console.anthropic.com';
+    document.getElementById('modal-result').textContent = 'Error: ' + err.message;
     document.getElementById('modal-result').classList.add('visible');
   }
-
   document.getElementById('modal-loading').classList.remove('visible');
   document.getElementById('modal-btn').disabled = false;
 }
 
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
+document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 </script>
 </body>
 </html>
