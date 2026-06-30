@@ -335,6 +335,14 @@ canvas#neural { position: absolute; inset: 0; }
   margin-top: 5px;
   box-shadow: 0 0 12px var(--blue-glow);
 }
+.tl-dot-cyan {
+  width: 12px; height: 12px;
+  background: var(--cyan);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
 .tl-dot-gray {
   width: 12px; height: 12px;
   background: #334155;
@@ -531,6 +539,19 @@ canvas#neural { position: absolute; inset: 0; }
 .blog-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
 .blog-meta { font-size: 11px; color: #334155; margin-top: 6px; }
 .blog-arrow { font-size: 20px; color: #334155; flex-shrink: 0; margin-top: 18px; transition: all 0.2s; }
+.blog-item { cursor: none; }
+.blog-content {
+  display: none;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+.blog-content.open { display: block; }
+.blog-content p { margin-bottom: 14px; }
+.blog-content h4 { font-size: 13px; font-weight: 600; color: var(--white); margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* CONTACT */
 .contact-bg {
@@ -785,13 +806,13 @@ footer {
     <div class="bento">
       <div class="bento-card">
         <div class="bento-label">Primary AI Stack</div>
-        <div class="bento-value">Azure OpenAI</div>
-        <div class="bento-sub">GPT-4o &middot; AI Foundry</div>
+        <div class="bento-value">Claude &amp; Azure OpenAI</div>
+        <div class="bento-sub">Anthropic &middot; GPT-4o &middot; AI Foundry</div>
       </div>
       <div class="bento-card">
-        <div class="bento-label">Orchestration</div>
-        <div class="bento-value">LangChain</div>
-        <div class="bento-sub">Agents &middot; RAG &middot; Tools</div>
+        <div class="bento-label">Agentic Layer</div>
+        <div class="bento-value">MCP + Agents</div>
+        <div class="bento-sub">Model Context Protocol &middot; Tool Use</div>
       </div>
       <div class="bento-card">
         <div class="bento-label">Vector Search</div>
@@ -801,12 +822,12 @@ footer {
       <div class="bento-card">
         <div class="bento-label">Productivity AI</div>
         <div class="bento-value">MS Copilot</div>
-        <div class="bento-sub">M365 &middot; Power Automate</div>
+        <div class="bento-sub">M365 &middot; Copilot Studio</div>
       </div>
       <div class="bento-card">
-        <div class="bento-label">Backend</div>
-        <div class="bento-value">Java</div>
-        <div class="bento-sub">Spring Boot &middot; REST APIs</div>
+        <div class="bento-label">Governance</div>
+        <div class="bento-value">EU AI Act</div>
+        <div class="bento-sub">GDPR &middot; Risk Classification</div>
       </div>
       <div class="bento-card">
         <div class="bento-label">Location</div>
@@ -859,13 +880,23 @@ footer {
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-left"><div class="tl-dot-gray"></div></div>
+        <div class="tl-left"><div class="tl-dot-gray"></div><div class="tl-line"></div></div>
         <div>
           <div class="tl-date">2015 &ndash; 2019 &middot; Chicago / Phoenix</div>
           <div class="tl-role">Java Backend Developer</div>
           <div class="tl-co">Northern Trust Bank &middot; Marsh Technologies</div>
           <div class="tl-desc">Enterprise Java development on treasury services and broker platforms. REST APIs, microservices, offshore team coordination.</div>
           <span class="tl-badge">Java &middot; REST APIs &middot; Microservices &middot; SQL</span>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-left"><div class="tl-dot-cyan"></div></div>
+        <div>
+          <div class="tl-date">2023 &ndash; Present &middot; Berlin</div>
+          <div class="tl-role">Co-Founder <span style="color:var(--gray);font-weight:400;">(30% equity)</span></div>
+          <div class="tl-co">YogaCRM &middot; Berlin</div>
+          <div class="tl-desc">Co-founded an AI-powered CRM platform for yoga studios and wellness businesses. Driving product strategy, AI feature roadmap, and go-to-market alongside technical co-founders. Building AI-driven booking intelligence, client retention automation, and instructor scheduling workflows.</div>
+          <span class="tl-badge">Product Strategy &middot; AI Features &middot; SaaS &middot; Go-to-Market</span>
         </div>
       </div>
     </div>
@@ -1104,32 +1135,65 @@ footer {
       <div class="section-sub">Practical AI delivery from the enterprise trenches</div>
     </div>
     <div class="reveal">
-      <div class="blog-item">
-        <div>
+      <div class="blog-item" onclick="toggleBlog('blog1',this)">
+        <div style="flex:1">
           <span class="blog-cat">AI Delivery</span>
           <div class="blog-title">How Microsoft Copilot Actually Changed Our Team's Delivery Speed</div>
           <div class="blog-desc">What really happened when we rolled out Copilot to 18 people &mdash; the wins, the resistance, the GDPR hurdles, and what I'd do differently.</div>
           <div class="blog-meta">6 min read &middot; May 2025</div>
+          <div class="blog-content" id="blog1">
+            <p>In early 2024, I was asked to lead the Microsoft Copilot rollout across a squad of 18 people at NRG Energy's Berlin office. We were part of a 3-million-customer energy platform going through digital transformation. Here's what actually happened.</p>
+            <h4>The first 30 days: resistance was real</h4>
+            <p>Nobody asked for Copilot. It landed from the top — leadership had signed an M365 Copilot licence and wanted adoption metrics by Q2. My job was to make it stick. The first thing I learned: people don't adopt tools they don't trust. Half the team's first question was "is it recording everything?" We spent two weeks just on trust — data boundaries, what Copilot sees, what it doesn't, how GDPR applies to AI-generated meeting summaries.</p>
+            <h4>What actually saved time</h4>
+            <p>The use cases that worked weren't the fancy ones. They were boring and repetitive. Meeting summaries from Teams recordings. First drafts of status reports. Summarising long Confluence pages before a planning session. Rewriting ticket descriptions into proper acceptance criteria. By month three, the team was saving 4–6 hours per week per person. Not on complex thinking — on formatting, summarising, and first-draft work.</p>
+            <h4>The GDPR blocker nobody planned for</h4>
+            <p>We hit a wall in month two. One use case involved summarising customer interaction notes. Legal flagged it immediately — those notes contained personal data under GDPR Article 4. We had to pause, run a Data Protection Impact Assessment (DPIA), get sign-off from the DPO, and redesign the use case with anonymisation built in. It delayed that use case by six weeks. The lesson: GDPR review should happen before you build, not after.</p>
+            <h4>What I'd do differently</h4>
+            <p>Run a use case identification workshop in week one. Get the team to map their own repetitive tasks. People adopt tools they shaped, not tools imposed on them. Also: build a simple Power BI dashboard from day one tracking active users and weekly saves. Nothing drives adoption like showing someone "your team saved 47 hours last month."</p>
+          </div>
         </div>
-        <div class="blog-arrow">&rarr;</div>
+        <div class="blog-arrow" id="blog1-arrow">&rarr;</div>
       </div>
-      <div class="blog-item">
-        <div>
+      <div class="blog-item" onclick="toggleBlog('blog2',this)">
+        <div style="flex:1">
           <span class="blog-cat">AI Strategy</span>
           <div class="blog-title">5 AI Use Cases That Actually Delivered ROI in an Enterprise Programme</div>
           <div class="blog-desc">Not the use cases people talk about at conferences. The ones that shipped, got adopted, and saved real hours at NRG Energy.</div>
           <div class="blog-meta">5 min read &middot; March 2025</div>
+          <div class="blog-content" id="blog2">
+            <p>Everyone talks about AI transforming industries. Fewer people talk about which specific use cases actually shipped in a real enterprise programme, survived a GDPR review, got adopted by real users, and delivered measurable hours back. Here are five from our programme.</p>
+            <h4>1. Meeting summary automation (Copilot)</h4>
+            <p>Teams meetings auto-summarised with action items and decisions. Simple. Boring. Saved 45 minutes per person per week across 18 people. First use case live, first one to hit 100% adoption. The key was making it opt-in and giving people the ability to edit the summary before it was shared.</p>
+            <h4>2. Requirements document analysis (RAG pipeline)</h4>
+            <p>Our platform has thousands of pages of specs, PRDs, and legacy requirement docs. We built a RAG pipeline on Azure AI Foundry so the team could ask natural-language questions against these documents. Reduced requirements review time by 40%. Three document types in production within four months.</p>
+            <h4>3. Status report first drafts</h4>
+            <p>Project managers spent 2–3 hours every Friday writing status reports. We built a Copilot prompt flow that pulled from Azure DevOps work items, recent Teams messages, and a structured template. First draft in 3 minutes. Edit and send in 15. This one had the clearest ROI of anything we shipped.</p>
+            <h4>4. Ticket description rewriter</h4>
+            <p>Developers hate writing acceptance criteria. A Power Automate flow with an Azure OpenAI call would take a rough ticket description and rewrite it as a proper user story with Given/When/Then criteria. Adopted by the whole squad within a week. Zero resistance — it made their jobs easier immediately.</p>
+            <h4>5. AI governance use case screener</h4>
+            <p>As the pipeline of AI use case ideas grew, our governance committee was meeting monthly to review them. I built a lightweight screening tool that ran each proposed use case through a structured prompt — GDPR risk, EU AI Act category, effort vs impact score. It cut governance meeting time by half and gave us a consistent framework for saying yes or no.</p>
+          </div>
         </div>
-        <div class="blog-arrow">&rarr;</div>
+        <div class="blog-arrow" id="blog2-arrow">&rarr;</div>
       </div>
-      <div class="blog-item">
-        <div>
+      <div class="blog-item" onclick="toggleBlog('blog3',this)">
+        <div style="flex:1">
           <span class="blog-cat">AI Governance</span>
           <div class="blog-title">What Nobody Tells You About Running AI Projects &mdash; GDPR, Hallucination & Change</div>
           <div class="blog-desc">The three things that slow every enterprise AI project down &mdash; and how we handled them on a 3M-customer platform in Germany.</div>
           <div class="blog-meta">7 min read &middot; January 2025</div>
+          <div class="blog-content" id="blog3">
+            <p>Running AI projects in a German enterprise in 2024 was nothing like the demos. Here are the three things that will slow you down — and what we learned from each.</p>
+            <h4>1. GDPR is not a checkbox</h4>
+            <p>Every AI use case that touches customer or employee data needs a Data Protection Impact Assessment. In Germany, with a 3M-customer dataset, that means the DPO is involved from day one — not day 60. We built GDPR review into our use case intake form from month two onwards. Before that, we had three use cases that had to be redesigned or paused after development had started. That's expensive. The fix: a simple two-page GDPR screening checklist runs before any AI use case gets approved. It flags personal data, data residency questions, retention periods, and model training risk. If it scores red, it goes to the DPO before engineering starts.</p>
+            <h4>2. Hallucination is a product design problem</h4>
+            <p>LLMs hallucinate. Every AI practitioner knows this. What most people underestimate is that enterprise users will lose trust the first time they see it — and they won't come back. We had one incident where a Copilot-generated summary included a decision that was never made. One person in the team saw it, mentioned it to two colleagues, and suddenly the whole floor was sceptical. The fix wasn't better prompting. It was human-in-the-loop design: every AI output is labelled "AI draft — verify before use," and critical use cases have a mandatory review step. Trust recovers slowly. Design for it from the start.</p>
+            <h4>3. Change management is 60% of the work</h4>
+            <p>The technology is the easy part. Getting 18 people to change how they work — even when the change saves them time — takes longer than you expect. We ran a monthly "AI wins" session where people shared what saved them time that week. We created a simple internal Slack channel for tips. We made early adopters into internal champions. None of this is in any AI delivery framework. But it's what made the difference between tools that got used and tools that got abandoned.</p>
+          </div>
         </div>
-        <div class="blog-arrow">&rarr;</div>
+        <div class="blog-arrow" id="blog3-arrow">&rarr;</div>
       </div>
     </div>
   </div>
@@ -1221,6 +1285,20 @@ footer {
 </div>
 
 <script>
+// BLOG TOGGLE
+function toggleBlog(id, row) {
+  const content = document.getElementById(id);
+  const arrow = document.getElementById(id + '-arrow');
+  const isOpen = content.classList.contains('open');
+  document.querySelectorAll('.blog-content').forEach(el => el.classList.remove('open'));
+  document.querySelectorAll('.blog-arrow').forEach(el => { el.style.transform = ''; el.style.color = ''; });
+  if (!isOpen) {
+    content.classList.add('open');
+    arrow.style.transform = 'rotate(90deg)';
+    arrow.style.color = 'var(--cyan)';
+  }
+}
+
 // CURSOR
 const cursor = document.getElementById('cursor');
 const cursorGlow = document.getElementById('cursorGlow');
